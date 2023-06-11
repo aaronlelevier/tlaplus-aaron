@@ -9,6 +9,9 @@ VARIABLES queue
 
 vars == <<queue>>
 
+\* bounded queue size is required or the queue size will grow indefinitely
+maxQueueSize == 3
+
 TypeOK ==
     /\ queue \in Seq(M)
 
@@ -16,7 +19,7 @@ Init ==
     /\ queue = << >>
 
 Send(m) ==
-    IF Len(queue) < 3 
+    IF Len(queue) < maxQueueSize
     THEN queue' = Append(queue, m)
     ELSE UNCHANGED queue
 
