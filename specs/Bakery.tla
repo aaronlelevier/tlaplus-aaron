@@ -42,8 +42,6 @@ Init ==
 -------------------------------------------------------------------------------
 
 Rem(i) ==
-    /\ ~ \E j \in I \ {i}:
-        /\ iState[j] = "exit"
     /\ iState[i] = "rem"
     /\ iState' = [iState EXCEPT ![i] = "try"]
     /\ UNCHANGED <<choosing, number>>
@@ -129,5 +127,5 @@ ME ==
 
 =============================================================================
 \* Modification History
-\* Last modified Sat Jun 10 17:35:54 PDT 2023 by aaronlelevier
+\* Last modified Sat Jun 10 18:16:04 PDT 2023 by aaronlelevier
 \* Created Wed Feb 22 14:58:46 PST 2023 by aaronlelevier
